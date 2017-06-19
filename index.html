@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/cricle.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        margin-left: 300px;
+        width: 150px;
+        height: 150px;
+        position: absolute;
+    }
+    
+    .cire {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        text-align: center;
+        bottom: 0;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div id="container"></div>
+        <div class="cire">
+            <div>打卡</div>
+        </div>
+    </div>
+    <script>
+        var optionsObject = {
+            'size': 150, // 150px width and height
+            'initialProgress': 100,
+            'progress': 50, // fillup in percent
+            'innerColor': 'rgb(255,0,0)',
+            'outerColor': '#00F',
+            'borderSize': 4, // width of the border
+        }
+        $('#container').circlesProgress(optionsObject);
+    </script>
+</body>
+
+</html>
