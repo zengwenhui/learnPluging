@@ -30,27 +30,68 @@
         height: 30px;
         text-align: center;
         bottom: 0;
+        z-index: 100;
         margin: auto;
+    }
+    
+    #projection {
+        position: absolute;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+        background-color: beige;
+        border-radius: 50%;
+        top: 0;
+        right: 0;
+    }
+    
+    .original {
+        z-index: 50;
+        position: absolute;
     }
 </style>
 
 <body>
+    <button id="btn">切换</button>
     <div class="container">
-        <div id="container"></div>
+        <div id="container" class="original"></div>
+        <div id="projection"></div>
         <div class="cire">
             <div>打卡</div>
         </div>
     </div>
     <script>
+        var a = true;
         var optionsObject = {
             'size': 150, // 150px width and height
-            'initialProgress': 100,
-            'progress': 50, // fillup in percent
+            'initialProgress': 0,
+            'progress': 100, // fillup in percent
             'innerColor': 'rgb(255,0,0)',
             'outerColor': '#00F',
+            'deltaT': 0,
             'borderSize': 4, // width of the border
         }
-        $('#container').circlesProgress(optionsObject);
+        var optionsObjectResver = {
+            'size': 150, // 150px width and height
+            'initialProgress': 100,
+            'progress': 0, // fillup in percent
+            'innerColor': 'rgb(255,0,0)',
+            'outerColor': '#00F',
+            'deltaT': 0.1,
+            'borderSize': 4, // width of the border
+        }
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            if (a) {
+                $('#container').circlesProgress(optionsObject);
+
+            } else {
+                $('#container').circlesProgress(optionsObjectResver);
+            }
+            a = !a;
+        })
+
+        //
     </script>
 </body>
 

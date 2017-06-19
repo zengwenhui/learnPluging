@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>圆形渐变LOADING</title>
+</head>
+
+<body>
+    <div id="demo" style="width:400px;height: 400px;position: relative;">
+        <div id="demo2" style="width: 200px;height: 200px;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;"></div>
+    </div>
+
+    <button id="setvalue">80</button>
+    <button id="setvalue2">30</button>
+    <script src="circleProgress.js"></script>
+    <script>
+        /*调用方法*/
+        var cp = new circleProgress({
+            speed: 0.5,
+            /*旋转速度，单位为秒*/
+            id: "svg1",
+            /*SVG 唯一识别ID*/
+            strokeWidth: "40",
+            /*圆形线条宽度*/
+            container: "#demo",
+            /*存放SVG的容器*/
+            colorArray: ['#ff0000', ],
+            bgcolor: "#000",
+            maxValue: 100
+        });
+        var cp2 = new circleProgress({
+            speed: 0.5,
+            /*旋转速度，单位为秒*/
+            id: "svg2",
+            /*SVG 唯一识别ID*/
+            strokeWidth: "20",
+            /*圆形线条宽度*/
+            container: "#demo2",
+            /*存放SVG的容器*/
+            colorArray: ['#ff0000', '#00ff00', '#0000ff', '#0ff0ff', '#f0ffe0'],
+            bgcolor: "#eee",
+            maxValue: 70
+        });
+        /*动态设置值*/
+        document.querySelector('#setvalue').addEventListener('click', function() {
+            cp.setvalue(10);
+            console.log('11')
+        });
+        document.querySelector('#setvalue2').addEventListener('click', function() {
+            cp.setvalue(100);
+        });
+    </script>
+</body>
+
+</html>
